@@ -1,3 +1,10 @@
-<p>Hi <%= @gift_card.name %>,</p>
-<p><%= @gift_card.note %></p>
-<p>To use your <%= number_to_currency @gift_card.price %> Gift Card enter the following Gift Code during checkout: <%= @gift_card.code %></p>
+<h2>QS2 Store Gift Certificate</h2>
+<p><%= @gift_card.name %>,</p>
+<p>Someone has purchased a <%= number_to_currency @gift_card.price %> gift certificate for you to use at the <a href="http://www.qs2store.com">QS2 Store</a>.</p>
+<p>To redeem your gift certificate, select any item from the <a href="http://www.qs2store.com">QS2 Store</a> and add it to your shopping card.  When ready to checkout, use the following code to redeem your Gift Certificate:</p>
+<p><%= @gift_card.code %></p>
+<br />
+<%unless @gift_card.note.blank?%> 
+	<h4>Note from the person that purchased your Gift Certificate:</h4>
+	<p><%= @gift_card.note %></p>
+<%end%>

@@ -3,7 +3,8 @@
 <tbody class="gift-code-field">
   <tr>
     <td colspan="6">
-      <%= order_form.label :gift_code %>
+      <p>If you have a gift certificate code to redeem, enter it below:</p>
+      <%= order_form.label "Gift Certificate Code" %>
       <%= order_form.text_field :gift_code, :size => 10 %>
       <%= order_form.submit I18n.t(:apply) %>
     </td>

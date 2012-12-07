@@ -1,21 +1,26 @@
-<h1><%= t(:gift_cards) %></h1>
+<h1>Gift Certificates</h1>
 <%= render "spree/shared/error_messages", :target => @gift_card %>
+<p>Gift certificates are emailed to the recipient you list below immediately after you purchase them.  They contain a special code that is entered when your recipient is checking out.  This code can be used mulitple times until the balance of the gift certificate runs out.</p>
 <%= form_for @gift_card do |f| %>
+  <h4>1. Select the value of the gift certificate.</h4>
   <p>
     <%= f.label :variant_id, t(:value) %>
     <span class="required">*</span><br/>
     <%= f.select :variant_id, @gift_card_variants.map { |variant| [money(variant.price), variant.id] } %>
   </p>
+  <h4>2. Enter the email address of the person you wish to send the gift certificate to.</h4>
   <p>
     <%= f.label :email, t("email") %>
     <span class="required">*</span><br/>
     <%= f.text_field :email %>
   </p>
+  <h4>3. Enter the name of the person you are sending the gift certificate to.</h4>
   <p>
     <%= f.label :name, t("recipient_name") %>
     <span class="required">*</span><br/>
     <%= f.text_field :name %>
   </p>
+  <h4>4. Enter a note for the recipient.  This message will be displayed on thie email containing the gift certificate.</h4>
   <p>
     <%= f.label :note, t("note") %><br/>
     <%= f.text_area :note, :rows => 10 %>
